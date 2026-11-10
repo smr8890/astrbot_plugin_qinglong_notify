@@ -1,0 +1,40 @@
+{
+  "token": {
+    "description": "插件访问 Token",
+    "hint": "青龙 WEBHOOK_HEADERS 中 X-Plugin-Token 的值，必须完全一致。留空时插件首次加载会自动生成随机 Token，可在本页点击眼睛图标查看。",
+    "type": "string",
+    "default": "",
+    "secret": true
+  },
+  "target_umos": {
+    "description": "通知目标 UMO",
+    "hint": "每行一个 unified_msg_origin。也可以先在目标会话中发送 /qlbind 自动添加。",
+    "type": "list",
+    "item_type": "string",
+    "default": []
+  },
+  "prefix": {
+    "description": "消息前缀",
+    "type": "string",
+    "default": ""
+  },
+  "max_message_length": {
+    "description": "单条消息最大长度",
+    "hint": "超过后优先按换行拆分；没有换行则硬切。0 表示不限制。",
+    "type": "int",
+    "default": 1500
+  },
+  "background_send": {
+    "description": "后台转发",
+    "hint": "收到通知后立即返回 200，并在后台发送，避免青龙 15 秒超时。",
+    "type": "bool",
+    "default": true
+  },
+  "allowed_ips": {
+    "description": "允许的来源 IP",
+    "hint": "留空表示不限制。每行一个 IP 或 CIDR，例如 172.17.0.1 或 172.17.0.0/16。",
+    "type": "list",
+    "item_type": "string",
+    "default": []
+  }
+}
